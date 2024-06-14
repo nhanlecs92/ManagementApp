@@ -1,0 +1,9 @@
+{
+    "header":{
+        "myApplication":"Ứng dụng của tôi",
+        "selectLanguage":"Chọn ngôn ngữ"
+    },
+    "home": {
+        "employeeManagement":"Quản lý nhân viên"
+    }
+}

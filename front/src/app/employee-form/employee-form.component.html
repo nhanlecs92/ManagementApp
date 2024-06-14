@@ -1,0 +1,150 @@
+<div class="container">
+  <div class="text-end">
+    <button mat-raised-button color="accent" routerLink="/employee/list">
+      Employee List
+    </button>
+  </div>
+  <h1 class="text-center mt-3">{{ title }} Employee</h1>
+  <div class="card p-3 mt-3">
+    <form #employeeForm="ngForm" (ngSubmit)="saveEmployee(employeeForm)">
+      <mat-form-field appearance="outline">
+        <input
+          matInput
+          [placeholder]="
+            employee.employeeId === 0
+              ? 'Employee Id'
+              : employee.employeeId.toString()
+          "
+          name="employeeId"
+          disabled="True"
+        />
+        <mat-icon matSuffix>lock</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Employee Name</mat-label>
+        <input
+          matInput
+          placeholder="Employee Name"
+          name="employeeName"
+          [(ngModel)]="employee.employeeName"
+        />
+        <mat-icon matSuffix>person</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Contact Number</mat-label>
+        <input
+          matInput
+          placeholder="Contact Number"
+          name="employeeContact"
+          [(ngModel)]="employee.employeeContact"
+        />
+        <mat-icon matSuffix>call</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Employee Address</mat-label>
+        <input
+          matInput
+          placeholder="Employee Address"
+          name="employeeAddress"
+          [(ngModel)]="employee.employeeAddress"
+        />
+        <mat-icon matSuffix>home</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Choose your department</mat-label>
+        <mat-select
+          name="employeeDepartment"
+          [(ngModel)]="employee.employeeDepartment"
+        >
+          <mat-option value="IT">IT</mat-option>
+          <mat-option value="Network">Network</mat-option>
+          <mat-option value="HR">HR</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div>
+        <label for="">Gender</label>
+        <mat-radio-group aria-label="Select an option">
+          <mat-radio-button
+            [checked]="checkGender('Male')"
+            (click)="selectGender('Male')"
+            value="Male"
+            >Male</mat-radio-button
+          >
+          <mat-radio-button
+            [checked]="checkGender('Female')"
+            (click)="selectGender('Female')"
+            value="Female"
+            >Female</mat-radio-button
+          >
+        </mat-radio-group>
+      </div>
+
+      <div>
+        <label for="">Skills</label>
+        <section class="example-section">
+          <mat-checkbox
+            (change)="onSkillsChange($event)"
+            value="Java"
+            class="example-margin"
+            [checked]="checkSkill('Java')"
+            >Java</mat-checkbox
+          >
+          <mat-checkbox
+            (change)="onSkillsChange($event)"
+            value="C#"
+            class="example-margin"
+            [checked]="checkSkill('C#')"
+            >C#</mat-checkbox
+          >
+          <mat-checkbox
+            (change)="onSkillsChange($event)"
+            value="Typescript"
+            class="example-margin"
+            [checked]="checkSkill('Typescript')"
+            >Typescript</mat-checkbox
+          >
+          <mat-checkbox
+            (change)="onSkillsChange($event)"
+            value="SpringBoot"
+            class="example-margin"
+            [checked]="checkSkill('SpringBoot')"
+            >SpringBoot</mat-checkbox
+          >
+          <mat-checkbox
+            (change)="onSkillsChange($event)"
+            value=".Net"
+            class="example-margin"
+            [checked]="checkSkill('.Net')"
+            >.Net</mat-checkbox
+          >
+          <mat-checkbox
+            (change)="onSkillsChange($event)"
+            value="Angular"
+            class="example-margin"
+            [checked]="checkSkill('Angular')"
+            >Angular</mat-checkbox
+          >
+          <mat-checkbox
+            (change)="onSkillsChange($event)"
+            value="AWS"
+            class="example-margin"
+            [checked]="checkSkill('AWS')"
+            >AWS</mat-checkbox
+          >
+        </section>
+      </div>
+
+      <mat-divider></mat-divider>
+
+      <div class="text-center mt-3">
+        <button mat-raised-button color="primary" class="mx-2">Save</button>
+        <button mat-raised-button class="mx-2">Clear</button>
+      </div>
+    </form>
+  </div>
+</div>

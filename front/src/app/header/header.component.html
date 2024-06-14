@@ -1,0 +1,19 @@
+<p>
+  <mat-toolbar>
+    <span routerLink="">{{ "header.myApplication" | translate }}</span>
+    <span class="example-spacer"></span>
+    <mat-form-field>
+      <mat-label>{{ "header.selectLanguage" | translate }}</mat-label>
+      <mat-select [(value)]="selectedLanguage">
+        <mat-option [value]="option.value" *ngFor="let option of languages">
+          <div (click)="switchLanguage(option.value)">
+            <img src="../../assets/images/{{ option.imgUrl }}.png" alt="" />
+            <span>
+              {{ option.viewValue }}
+            </span>
+          </div>
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </mat-toolbar>
+</p>

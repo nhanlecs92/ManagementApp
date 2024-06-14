@@ -1,0 +1,9 @@
+{
+    "header":{
+        "myApplication":"My Application",
+        "selectLanguage":"Select Language"
+    },
+    "home": {
+        "employeeManagement":"Employee Management"
+    }
+}
