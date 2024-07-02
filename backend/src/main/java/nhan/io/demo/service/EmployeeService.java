@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import nhan.io.demo.entity.Employee;
-import nhan.io.demo.exception.EmployeeNotFoundException;
+import nhan.io.demo.exception.EntityNotFoundException;
 import nhan.io.demo.repository.EmployeeRepo;
 
 @Service
@@ -29,7 +29,7 @@ public class EmployeeService {
         if (employeeOp.isPresent())
             return employeeOp.get();
         else {
-            throw new EmployeeNotFoundException("Employee with " + id + " not found");
+            throw new EntityNotFoundException("Employee with " + id + " not found");
         }
     }
 

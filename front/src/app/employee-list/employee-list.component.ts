@@ -15,7 +15,7 @@ export class EmployeeListComponent implements OnInit {
   displayedColumns: string[] = [
     'employeeId',
     'employeeName',
-    'employeeContact',
+    'employeePhoneNumber',
     'employeeAddress',
     'employeeGender',
     'employeeDepartment',

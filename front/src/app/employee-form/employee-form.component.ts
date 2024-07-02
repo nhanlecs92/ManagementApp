@@ -14,7 +14,7 @@ export class EmployeeFormComponent {
   employee: Employee = {
     employeeId: 0,
     employeeName: '',
-    employeeContact: '',
+    employeePhoneNumber: '',
     employeeAddress: '',
     employeeGender: '',
     employeeDepartment: '',
@@ -29,7 +29,6 @@ export class EmployeeFormComponent {
   ) {}
 
   ngOnInit(): void {
-    console.log('employee state', history.state.employee);
     if (history.state.employee) {
       this.employee = history.state.employee;
     }
@@ -59,7 +58,6 @@ export class EmployeeFormComponent {
   saveEmployee(employeeForm: NgForm): void {
     this.employeeService.saveEmployee(this.employee).subscribe({
       next: (res: Employee) => {
-        console.log(res);
         employeeForm.reset();
         this.employee.employeeGender = '';
         this.skills = [];

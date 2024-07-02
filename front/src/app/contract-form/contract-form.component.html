@@ -1,0 +1,92 @@
+<div class="container">
+  <div class="text-end">
+    <button mat-raised-button color="accent" routerLink="/contract/list">
+      Contract List
+    </button>
+  </div>
+  <h1 class="text-center mt-3">{{ title }} Contract</h1>
+  <div class="card p-3 mt-3">
+    <form [formGroup]="contractForm" (submit)="saveContract()">
+      <mat-form-field class="w-100" appearance="outline">
+        <mat-label>Contract Name</mat-label>
+        <input
+          matInput
+          placeholder="Contract Name"
+          name="contractName"
+          formControlName="contractName"
+        />
+        <mat-icon matSuffix>contract</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field class="w-100" appearance="outline">
+        <mat-label>Salary</mat-label>
+        <input
+          matInput
+          type="number"
+          placeholder="Salary"
+          name="salary"
+          formControlName="salary"
+        />
+        <mat-icon matSuffix>payments</mat-icon>
+      </mat-form-field>
+
+      <div class="row justify-content-between">
+        <mat-form-field class="col-5">
+          <mat-label>Choose start date</mat-label>
+          <input
+            matInput
+            [matDatepicker]="startpicker"
+            formControlName="startDate"
+          />
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="startpicker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #startpicker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field class="col-5">
+          <mat-label>Choose end date</mat-label>
+          <input
+            matInput
+            [matDatepicker]="endpicker"
+            formControlName="endDate"
+          />
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="endpicker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #endpicker></mat-datepicker>
+        </mat-form-field>
+      </div>
+
+      <mat-form-field class="w-100">
+        <mat-label>Choose status</mat-label>
+        <mat-select name="contractStatus" formControlName="contractStatus">
+          <mat-option value="ACTIVE">ACTIVE</mat-option>
+          <mat-option value="EXPIRED">EXPIRED</mat-option>
+          <mat-option value="CANCELLED">CANCELLED</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="w-100" *ngIf="employeeOptions">
+        <mat-label>Choose Employee</mat-label>
+        <mat-select formControlName="employee">
+          <mat-option
+            *ngFor="let employee of employeeOptions"
+            [value]="employee"
+          >
+            {{ employee.employeeName }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-divider></mat-divider>
+
+      <div class="text-center mt-3">
+        <button mat-raised-button color="primary" class="mx-2">Save</button>
+        <button mat-raised-button class="mx-2">Clear</button>
+      </div>
+    </form>
+  </div>
+</div>

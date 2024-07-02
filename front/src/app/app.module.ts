@@ -17,7 +17,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EmployeeFormComponent } from './employee-form/employee-form.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
@@ -26,6 +26,10 @@ import { ComfirmDialogComponent } from './comfirm-dialog/comfirm-dialog.componen
 import { MatDialogModule } from '@angular/material/dialog';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { ContractListComponent } from './contract-list/contract-list.component';
+import { ContractFormComponent } from './contract-form/contract-form.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -39,11 +43,24 @@ export function HttpLoaderFactory(http: HttpClient) {
     EmployeeFormComponent,
     EmployeeListComponent,
     ComfirmDialogComponent,
+    ContractListComponent,
+    ContractFormComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient],
+      },
+    }),
     MatToolbarModule,
     MatGridListModule,
     MatTooltipModule,
@@ -55,18 +72,10 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatCheckboxModule,
     MatDividerModule,
     MatButtonModule,
-    FormsModule,
-    HttpClientModule,
     MatTableModule,
     MatDialogModule,
-    HttpClientModule,
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
-        deps: [HttpClient],
-      },
-    }),
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -9,20 +9,17 @@ import { Observable } from 'rxjs';
 export class EmployeeService {
   constructor(private httpClient: HttpClient) {}
 
-  api = 'http://localhost:9090';
+  api = 'http://localhost:9090/employee';
 
   public saveEmployee(employee: Employee): Observable<Employee> {
-    return this.httpClient.post<Employee>(
-      `${this.api}/save/employee`,
-      employee
-    );
+    return this.httpClient.post<Employee>(`${this.api}/save`, employee);
   }
 
   public getEmployees(): Observable<Employee[]> {
-    return this.httpClient.get<Employee[]>(`${this.api}/get/employees`);
+    return this.httpClient.get<Employee[]>(`${this.api}/get`);
   }
 
   public deleteEmployee(id: number): Observable<void> {
-    return this.httpClient.delete<void>(`${this.api}/delete/employee/${id}`);
+    return this.httpClient.delete<void>(`${this.api}/delete/${id}`);
   }
 }

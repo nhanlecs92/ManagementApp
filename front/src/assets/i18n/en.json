@@ -4,6 +4,7 @@
         "selectLanguage":"Select Language"
     },
     "home": {
-        "employeeManagement":"Employee Management"
+        "employeeManagement":"Employee Management",
+        "contractManagement": "Contract Management"
     }
 }

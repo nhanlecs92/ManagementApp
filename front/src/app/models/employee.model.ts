@@ -1,7 +1,7 @@
 export interface Employee {
   employeeId: number;
   employeeName: string;
-  employeeContact: string;
+  employeePhoneNumber: string;
   employeeAddress: string;
   employeeGender: string;
   employeeDepartment: string;

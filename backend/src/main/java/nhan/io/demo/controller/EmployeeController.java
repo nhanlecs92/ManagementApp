@@ -21,25 +21,45 @@ public class EmployeeController {
     @Autowired
     private EmployeeService employeeService;
 
-    // you can save/update with this method. If no id/new id, create new employee.
-    // If exist id, update.
-    @PostMapping("/save/employee")
+    /**
+     * Save or update an employee.
+     *
+     * @param employee the employee to be saved or updated
+     * @return the saved or updated employee
+     */
+    @PostMapping("/employee/save")
     public Employee saveEmployee(@RequestBody Employee employee) {
-        // TODO: process POST request
         return employeeService.saveEmployee(employee);
     }
 
-    @GetMapping("/get/employees")
+    /**
+     * Retrieves a list of all employees.
+     *
+     * @return A list of Employee objects representing all employees.
+     */
+    @GetMapping("/employee/get")
     public List<Employee> getEmployees() {
         return employeeService.getEmployees();
     }
 
-    @GetMapping("/get/employee/{id}")
+    /**
+     * Retrieves an employee by their ID.
+     *
+     * @param id the ID of the employee to retrieve
+     * @return the employee with the specified ID, or null if not found
+     */
+    @GetMapping("/employee/get/{id}")
     public Employee getEmployee(@PathVariable Integer id) {
         return employeeService.getEmployee(id);
     }
 
-    @DeleteMapping("delete/employee/{id}")
+    /**
+     * Deletes an employee by their ID.
+     *
+     * @param id the ID of the employee to be deleted
+     * @return void
+     */
+    @DeleteMapping("/employee/delete/{id}")
     public void deleteEmployee(@PathVariable Integer id) {
         employeeService.deleteEmployee(id);
     }

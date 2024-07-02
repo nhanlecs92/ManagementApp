@@ -4,6 +4,7 @@
         "selectLanguage":"Chọn ngôn ngữ"
     },
     "home": {
-        "employeeManagement":"Quản lý nhân viên"
+        "employeeManagement":"Quản lý nhân viên",
+        "contractManagement": "Quản lý hợp đồng"
     }
 }
